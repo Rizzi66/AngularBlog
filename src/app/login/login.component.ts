@@ -25,6 +25,7 @@ export class LoginComponent {
       next: (data) => {
         console.log(data);
         localStorage.setItem('token', data.token);
+        localStorage.setItem('role', data.role);
         this.userservice.setUserName(this.name);
         this.router.navigateByUrl('/');
       },

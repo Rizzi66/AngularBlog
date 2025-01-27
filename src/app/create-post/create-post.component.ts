@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-create-post',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './create-post.component.html',
-  styleUrl: './create-post.component.scss'
+  styleUrl: './create-post.component.scss',
 })
-export class CreatePostComponent {
+export class CreatePostComponent implements OnInit {
+  isAdmin: boolean = false;
 
+  ngOnInit(): void {
+    const role = localStorage.getItem('role');
+    if (role === 'admin' || role === 'user') {
+      this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
+    }
+  }
 }

@@ -1,1 +1,8 @@
-<p>create-post works!</p>
+<div *ngIf="isAdmin; else noContent">
+  <main>
+    <h2>Ajouter un Post</h2>
+  </main>
+</div>
+<ng-template #noContent>
+  <main><p>Les droits d'admin ou utilisateurs sont requis</p></main>
+</ng-template>

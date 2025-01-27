@@ -19,6 +19,18 @@ export class UserService {
     return this.http.post<any>(`${this.apiUrl}createUser`, user);
   }
 
+  getUsers(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}users`);
+  }
+
+  modifyRole(userId: string, role: string): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}users/${userId}`, { role });
+  }
+
+  deleteUser(userId: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}users/${userId}`);
+  }
+
   getUserName(): string {
     return this.name();
   }
