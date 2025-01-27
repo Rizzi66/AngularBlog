@@ -1,0 +1,11 @@
+<main>
+  <h2>Inscription</h2>
+  <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+    <label for="name">Identifiant</label>
+    <input [(ngModel)]="name" name="name" />
+    <label for="password">Mot de passe</label>
+    <input [(ngModel)]="password" name="password" type="password" />
+    <input type="submit" value="S'inscrire" />
+    <p>{{ message }}</p>
+  </form>
+</main>
