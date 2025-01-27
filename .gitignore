@@ -8,6 +8,8 @@
 
 # Node
 /node_modules
+blog-backend/node_modules
+blog-backend/.env
 npm-debug.log
 yarn-error.log
 
