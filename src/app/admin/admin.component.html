@@ -1,0 +1,37 @@
+<div *ngIf="isAdmin; else noContent">
+  <main>
+    <h2>Gestion des rôles</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>nom</th>
+          <th>rôle</th>
+          <th>modification</th>
+          <th>suppression</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <select
+              id="role"
+              [(ngModel)]="user.role"
+              (change)="modifyRole(user._id, user.role)"
+            >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="deleteUser(user._id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</div>
+<ng-template #noContent>
+  <main><p>Les droits d'admin sont requis</p></main>
+</ng-template>
